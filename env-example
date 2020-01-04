@@ -1,0 +1,36 @@
+#--------------------------------#
+#            NGINX               #
+#--------------------------------#
+
+NGINX_HTTP_PORT=80
+NGINX_HTTPS_PORT=443
+APPLICATION_DIR=./www
+NGINX_CONF_PATH=./docker/nginx/config/
+NGINX_LOG_PATH=./docker/nginx/logs/
+
+#--------------------------------#
+#             PHP                #
+#--------------------------------#
+
+PHP_CONFIG_DIR=./docker/php-fpm/config/
+PHP_LOG_PATH=./docker/php-fpm/logs
+PHP_PORT_EXPOSE=9000
+
+#--------------------------------#
+#             MYSQL              #
+#--------------------------------#
+
+MYSQL_DATABASE=arquivei
+MYSQL_USER=default
+MYSQL_PASSWORD=secret
+MYSQL_PORT=3306
+MYSQL_ROOT_PASSWORD=root
+MYSQL_DATA=./docker/mysql/
+
+#--------------------------------#
+#          BEANSTALKD            #
+#--------------------------------#
+
+BEANSTALKD_PORT=11300
+BEANSTALKD_CONSOLE_PORT=8080
+BEANSTALKD_HOST=arquivei.test
