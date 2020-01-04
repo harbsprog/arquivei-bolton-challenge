@@ -21,10 +21,3 @@ Homestead.yaml
 Homestead.json
 /.vagrant
 .phpunit.result.cache
-docker/mysql/*/
-docker/mysql/*.*
-docker/mysql/ib_buffer_pool
-docker/mysql/ib_logfile0
-docker/mysql/ib_logfile1
-docker/mysql/ibdata1
-docker/mysql/ibtmp1
