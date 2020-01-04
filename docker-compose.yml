@@ -1,0 +1,57 @@
+version: "3.4"
+
+services:
+  arquivei-nginx:
+    image: nginx:latest
+    container_name: arquivei-nginx
+    restart: always
+    depends_on:
+      - arquivei-php
+    ports:
+      - "${NGINX_HTTP_PORT}:80"
+      - "${NGINX_HTTPS_PORT}:443"
+    volumes:
+      - ${APPLICATION_DIR}:/var/www/html
+      - ${NGINX_CONF_PATH}default.conf:/etc/nginx/conf.d/default.conf
+      - ${NGINX_LOG_PATH}error.log:/var/log/nginx/error.log
+      - ${NGINX_LOG_PATH}access.log:/var/log/nginx/access.log
+  arquivei-php:
+    container_name: arquivei-php
+    restart: always
+    build:
+      context: ./docker/php-fpm
+      dockerfile: Dockerfile
+    expose:
+      - "${PHP_PORT_EXPOSE}"
+    volumes:
+      - ${PHP_LOG_PATH}:/var/log/php-fpm
+      - ${APPLICATION_DIR}:/var/www/html
+      - ${PHP_CONFIG_DIR}php.ini:/usr/local/etc/php/php.ini
+  arquivei-mysql:
+    image: mysql:5.7
+    container_name: arquivei-mysql
+    restart: always
+    ports:
+      - "${MYSQL_PORT}:3306"
+    volumes:
+      - ${MYSQL_DATA}:/var/lib/mysql
+    environment:
+      - MYSQL_DATABASE=${MYSQL_DATABASE}
+      - MYSQL_USER=${MYSQL_USER}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+  arquivei-beanstalkd:
+    image: schickling/beanstalkd:latest
+    container_name: arquivei-beanstalkd
+    restart: always
+    ports:
+      - "${BEANSTALKD_PORT}:11300"
+  arquivei-beanstalkd-console:
+    image: agaveapi/beanstalkd-console:latest
+    container_name: arquivei-beanstalkd-console
+    restart: always
+    ports:
+      - "${BEANSTALKD_CONSOLE_PORT}:80"
+    environment:
+      - BEANSTALKD_HOST=${BEANSTALKD_HOST}
+      - BEANSTALKD_PORT=${BEANSTALKD_PORT}
