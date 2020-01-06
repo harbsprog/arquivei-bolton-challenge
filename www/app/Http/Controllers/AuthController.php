@@ -2,13 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\UsersValidator;
 use JWTAuth;
-use App\User;
-use App\UserValidator;
-use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
-use Tymon\JWTAuth\Exceptions\JWTException;
 
 class AuthController extends Controller
 {
@@ -37,13 +32,5 @@ class AuthController extends Controller
             'success' => true,
             'token' => $token,
         ]);
-    }
-
-    /**
-     * @param RegistrationFormRequest $request
-     * @return \Illuminate\Http\JsonResponse
-     */
-    public function register(Request $request)
-    {
     }
 }
