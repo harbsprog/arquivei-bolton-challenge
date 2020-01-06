@@ -1,2 +1,0 @@
-2020/01/04 21:25:11 [notice] 64#64: signal process started
-2020/01/05 00:14:06 [error] 6#6: *3 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 172.20.0.1, server: arquivei.test, request: "POST /api/auth/login HTTP/1.1", upstream: "fastcgi://172.20.0.5:9000", host: "arquivei.test"
