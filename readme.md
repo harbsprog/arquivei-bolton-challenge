@@ -25,7 +25,7 @@ Desafio proposto pela Arquivei em processo seletivo para vaga de Desenvolvedor B
 O item número 3 pede a criação de um endpoint que dada a chave de acesso ele retorne o valor total o mesmo se encontra em `http://arquivei.test/api/nfe/{accessKey}`, caso não tenha a chave informada no banco utilizo o Guzzle para requisitar ao sandbox da arquivei a chave solicitada  guardo no banco e mostro para o usuário. Caso utilize o endpoint com o filtro ?showNfe=true ele irá exibir além do valor total a NFe com um base64_decode ou seja o xml propriamente dito, exemplo: `http://arquivei.test/nfe/{accessKey}?showNfe=true`
 Ou se preferir utilizando ?showBase64Nfe=true mostrará além do valor total a NFe com base64_encode, exemplo:
 `http://arquivei.test/nfe/{accessKey}?showBase64Nfe=true`
-Implementei um rateLimit neste endpoint de 100 requests/min onde se o limite for ultrapassado jogo em uma fila de retry evitando perda de processamento onde o endpoint terceiro (no caso a arquivei) hora que bater o limite de requisições ira negar os requests.
+Implementei um rateLimit neste endpoint de 100 requests/min que contempla o limit da Api da Arquivei, onde se o limite for ultrapassado jogo em uma fila de retry evitando perda de processamento onde o endpoint terceiro (no caso a arquivei) hora que bater o limite de requisições ira negar os requests.
 
 ## Arquitetura
 ![Arquitetura](https://raw.githubusercontent.com/harbsprog/arquivei-bolton-challenge/master/others/Arquitetura-Challenge.png)
