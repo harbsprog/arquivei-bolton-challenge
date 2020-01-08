@@ -12,7 +12,11 @@ use Illuminate\Support\Facades\Validator;
 class UsersService
 {
     private $usersRepository;
-    const ERRO_MYSQL_CONNECTION = 'Erro de conexão com o banco';
+    const NOT_FOUND_USER = 'User not found.';
+    const NOT_CREATED_USER = 'User not created.';
+    const NOT_UPDATED_USER = 'User not updated.';
+    const NOT_DELETED_USER = 'User not deleted.';
+    const ERRO_MYSQL_CONNECTION = 'Erro de conexão com o banco.';
 
     public function __construct(UsersRepositoryInterface $usersRepository)
     {
@@ -20,48 +24,65 @@ class UsersService
         $this->usersRepository = $usersRepository;
     }
 
+    /**
+     * Find all users.
+     *
+     * @param null
+     *
+     * @return mixed
+     */
     public function getAll()
     {
 
         try {
 
             $users = $this->usersRepository->getAll();
-            $countItems = (count($users) > 0) ? true : false;
 
-            if ($countItems) {
+            if ($users) {
 
                 return response()->json($users, Response::HTTP_OK);
-            } else {
-
-                return response()->json([], Response::HTTP_OK);
             }
+
+            return response()->json(['message' => self::NOT_FOUND_USER], Response::HTTP_OK);
         } catch (QueryException $e) {
 
             return response()->json(['erro' => self::ERRO_MYSQL_CONNECTION], Response::HTTP_INTERNAL_SERVER_ERROR);
         }
     }
 
+    /**
+     * Find a user by id.
+     *
+     * @param $id
+     *
+     * @return mixed
+     */
     public function get(int $id)
     {
 
         try {
 
             $user = $this->usersRepository->get($id);
-            $countItems = (count($user) > 0) ? true : false;
 
-            if ($countItems) {
+            if ($user) {
 
                 return response()->json($user, Response::HTTP_OK);
-            } else {
-
-                return response()->json(null, Response::HTTP_NOT_FOUND);
             }
+
+            return response()->json(['message' => self::NOT_FOUND_USER], Response::HTTP_OK);
         } catch (QueryException $e) {
 
             return response()->json(['erro' => self::ERRO_MYSQL_CONNECTION], Response::HTTP_INTERNAL_SERVER_ERROR);
         }
     }
 
+    /**
+     * Create & Store a new user.
+     *
+     * @param $request
+     *
+     * @return static
+     */
     public function store(Request $request)
     {
 
@@ -79,7 +100,13 @@ class UsersService
             try {
 
                 $user = $this->usersRepository->store($request);
-                return response()->json($user, Response::HTTP_CREATED);
+
+                if ($user) {
+
+                    return response()->json($user, Response::HTTP_CREATED);
+                }
+
+                return response()->json(['message' => self::NOT_CREATED_USER], Response::HTTP_OK);
             } catch (QueryException $e) {
 
                 return response()->json(['erro' => self::ERRO_MYSQL_CONNECTION], Response::HTTP_INTERNAL_SERVER_ERROR);
@@ -87,26 +114,53 @@ class UsersService
         }
     }
 
+    /**
+     * Update a user by id.
+     *
+     * @param $id
+     * @param $request
+     *
+     * @return mixed
+     */
     public function update(int $id, Request $request)
     {
 
         try {
 
             $user = $this->usersRepository->update($id, $request);
-            return response()->json($user, Response::HTTP_OK);
+
+            if ($user) {
+
+                return response()->json($user, Response::HTTP_OK);
+            }
+
+            return response()->json(['message' => self::NOT_UPDATED_USER], Response::HTTP_OK);
         } catch (QueryException $e) {
 
             return response()->json(['erro' => self::ERRO_MYSQL_CONNECTION], Response::HTTP_INTERNAL_SERVER_ERROR);
         }
     }
 
+    /**
+     * Delete a user by id.
+     *
+     * @param $id
+     *
+     * @return int
+     */
     public function destroy(int $id)
     {
 
         try {
 
             $user = $this->usersRepository->destroy($id);
-            return response()->json($user, Response::HTTP_OK);
+
+            if ($user) {
+
+                return response()->json($user, Response::HTTP_OK);
+            }
+
+            return response()->json(['message' => self::NOT_DELETED_USER], Response::HTTP_OK);
         } catch (QueryException $e) {
 
             return response()->json(['erro' => self::ERRO_MYSQL_CONNECTION], Response::HTTP_INTERNAL_SERVER_ERROR);

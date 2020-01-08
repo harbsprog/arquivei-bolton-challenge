@@ -18,6 +18,13 @@ class UsersRepositoryEloquent implements UsersRepositoryInterface
         $this->user = $user;
     }
 
+    /**
+     * Find all users.
+     *
+     * @param null
+     *
+     * @return mixed
+     */
     public function getAll()
     {
 
@@ -29,6 +36,13 @@ class UsersRepositoryEloquent implements UsersRepositoryInterface
             )->get();
     }
 
+    /**
+     * Find user by id.
+     *
+     * @param $id
+     *
+     * @return mixed
+     */
     public function get(int $id)
     {
 
@@ -42,6 +56,13 @@ class UsersRepositoryEloquent implements UsersRepositoryInterface
             ->get();
     }
 
+    /**
+     * Create & store new user.
+     *
+     * @param $request
+     *
+     * @return static
+     */
     public function store(Request $request)
     {
 
@@ -51,6 +72,14 @@ class UsersRepositoryEloquent implements UsersRepositoryInterface
         return $this->user->create($request->all());
     }
 
+    /**
+     * Update user by id.
+     *
+     * @param $id
+     * @param $request
+     *
+     * @return mixed
+     */
     public function update(int $id, Request $request)
     {
 
@@ -62,6 +91,13 @@ class UsersRepositoryEloquent implements UsersRepositoryInterface
             ->update($request->all());
     }
 
+    /**
+     * Delete user by id.
+     *
+     * @param $id
+     *
+     * @return int
+     */
     public function destroy(int $id)
     {
 
