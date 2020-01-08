@@ -49,7 +49,7 @@ class NfeSyncJob implements ShouldQueue
         }
         if (isset($responseSandbox->data) && is_array($responseSandbox->data) && count($responseSandbox->data) > 0) {
 
-            dispatch((new NfeSyncJob($this->stus, $responseSandbox->page->next))
+            dispatch((new NfeSyncJob($this->status, $responseSandbox->page->next))
                 ->onConnection('beanstalkd')
                 ->onQueue('nfeSync')->delay(1));
 
