@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'default' => env('QUEUE_CONNECTION', 'sync'),
+    'default' => env('QUEUE_CONNECTION', 'beanstalkd'),
 
     /*
     |--------------------------------------------------------------------------
@@ -43,8 +43,8 @@ return [
 
         'beanstalkd' => [
             'driver' => 'beanstalkd',
-            'host' => 'localhost',
-            'queue' => 'default',
+            'host' => 'arquivei-beanstalkd',
+            'queue' => 'nfeSync',
             'retry_after' => 90,
             'block_for' => 0,
         ],

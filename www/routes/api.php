@@ -24,11 +24,18 @@ Route::group(
     ['middleware' => 'auth.jwt'],
     function () {
 
+        /* NFes Routes */
+        Route::get('/nfe/{access_key}', ['uses' => 'Nfes\NfeController@getByAccessKey']);
+        Route::get('/nfe/{id}', ['uses' => 'Nfes\NfeController@get']);
+        Route::post('/nfe', ['uses' => 'Nfes\NfeController@store']);
+        Route::put('/nfe/{access_key}', ['uses' => 'Nfes\NfeController@update']);
+        Route::delete('/nfe/{access_key}', ['uses' => 'Nfes\NfeController@destroy']);
+
         /* Users Routes */
-        Route::get("/users", "Users\UsersController@getAll");
-        Route::get("/users/{id}", "Users\UsersController@get");
-        Route::post("/users", "Users\UsersController@store");
-        Route::put("/users/{id}", "Users\UsersController@update");
-        Route::delete("/users/{id}", "Users\UsersController@destroy");
+        Route::get("/users",  ['uses' => "Users\UsersController@getAll"]);
+        Route::get("/users/{id}",  ['uses' => "Users\UsersController@get"]);
+        Route::post("/users",  ['uses' => "Users\UsersController@store"]);
+        Route::put("/users/{id}",  ['uses' => "Users\UsersController@update"]);
+        Route::delete("/users/{id}",  ['uses' => "Users\UsersController@destroy"]);
     }
 );
