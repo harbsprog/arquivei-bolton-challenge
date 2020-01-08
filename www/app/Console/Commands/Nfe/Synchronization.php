@@ -4,7 +4,6 @@ namespace App\Console\Commands\Nfe;
 
 use App\Jobs\NfeSyncJob;
 use Illuminate\Console\Command;
-use Illuminate\Support\Facades\Log;
 
 class Synchronization extends Command
 {
@@ -41,12 +40,8 @@ class Synchronization extends Command
     {
         $status = $this->argument('status') ?? 'received';
 
-        Log::info('Dispatching');
-
         dispatch((new NfeSyncJob($status))
             ->onConnection('beanstalkd')
             ->onQueue('nfeSync')->delay(1));
-
-        Log::info('Job to sync NFe dispatched!');
     }
 }

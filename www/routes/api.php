@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Artisan;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,6 +26,8 @@ Route::group(
     function () {
 
         /* NFes Routes */
+        Route::get('/syncNfe', ['uses' => Artisan::call('nfe:synchronization')]);
+
         Route::get('/nfe/{access_key}', ['uses' => 'Nfes\NfeController@getByAccessKey']);
         Route::get('/nfe/{id}', ['uses' => 'Nfes\NfeController@get']);
         Route::post('/nfe', ['uses' => 'Nfes\NfeController@store']);

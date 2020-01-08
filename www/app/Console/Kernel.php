@@ -24,8 +24,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->command('nfe:synchronization')->everyMinute()
-            ->appendOutputTo(storage_path('logs/nfe-synchronization.log'));
+        $schedule->command('nfe:synchronization')->twiceDaily(0, 12);
     }
 
     /**
