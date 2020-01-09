@@ -11,8 +11,8 @@ class Nfe extends Model
 
     protected $fillable = [
         'xml_content',
+        'access_key',
         'total_value',
-        'access_key'
     ];
 
     public $timestamps = true;

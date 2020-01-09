@@ -175,6 +175,10 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        App\Providers\UsersServiceProvider::class,
+        App\Providers\NfesServiceProvider::class,
+        App\Providers\ArquiveiServiceProvider::class,
+
     ],
 
     /*

@@ -25,6 +25,7 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         $schedule->command('nfe:synchronization')->twiceDaily(0, 12);
+        $schedule->command('nfe:synchronization')->everyMinute();
     }
 
     /**
