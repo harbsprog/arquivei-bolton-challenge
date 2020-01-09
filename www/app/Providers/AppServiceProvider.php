@@ -3,6 +3,9 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use App\Providers\UsersServiceProvider;
+use App\Providers\NfesServiceProvider;
+use App\Providers\ArquiveiServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -13,20 +16,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->bind(
-            'App\Repositories\ArquiveiRepositoryInterface',
-            'App\Repositories\ArquiveiRepositoryEloquent'
-        );
 
-        $this->app->bind(
-            'App\Repositories\NfesRepositoryInterface',
-            'App\Repositories\NfesRepositoryEloquent'
-        );
-
-        $this->app->bind(
-            'App\Repositories\UsersRepositoryInterface',
-            'App\Repositories\UsersRepositoryEloquent'
-        );
+        $this->app->register(UsersServiceProvider::class);
+        $this->app->register(NfesServiceProvider::class);
+        $this->app->register(ArquiveiServiceProvider::class);
     }
 
     /**

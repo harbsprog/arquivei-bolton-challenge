@@ -2,6 +2,7 @@
 
 namespace App\Jobs;
 
+use App\Events\Worker;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
@@ -38,8 +39,8 @@ class NfeSyncJob implements ShouldQueue
      */
     public function handle(NfesRepositoryInterface $nfe, ArquiveiRepositoryInterface $arquivei)
     {
-        $this->arquivei = $arquivei;
         $this->nfe = $nfe;
+        $this->arquivei = $arquivei;
 
         $responseSandbox = $this->arquivei->get($this->status, $this->urlCursor);
 
@@ -59,6 +60,8 @@ class NfeSyncJob implements ShouldQueue
                 $parsedContent->xml_content = $content->xml;
                 $parsedContent->access_key = $content->access_key;
                 $parsedContent->total_value = $this->arquivei->getPriceOnXml($content->xml);
+
+                event(new Worker($parsedContent));
             }
         }
     }
