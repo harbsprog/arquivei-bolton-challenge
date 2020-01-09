@@ -9,11 +9,11 @@ use App\Services\NfesService;
 
 class NfeController extends Controller
 {
-    private $NfesService;
+    private $nfesService;
 
-    public function __construct(NfesService $NfesService)
+    public function __construct(NfesService $nfesService)
     {
-        $this->NfesService = $NfesService;
+        $this->nfesService = $nfesService;
     }
 
     /**
@@ -25,7 +25,7 @@ class NfeController extends Controller
      */
     public function getByAccessKey(string $access_key)
     {
-        return $this->NfesService->getByAccessKey($access_key);
+        return $this->nfesService->getByAccessKey($access_key);
     }
 
     /**
@@ -37,7 +37,7 @@ class NfeController extends Controller
      */
     public function get(int $id)
     {
-        return $this->NfesService->get($id);
+        return $this->nfesService->get($id);
     }
 
     /**
@@ -49,7 +49,7 @@ class NfeController extends Controller
      */
     public function store(Request $request)
     {
-        return $this->NfesService->store($request);
+        return $this->nfesService->store($request);
     }
 
     /**
@@ -61,7 +61,7 @@ class NfeController extends Controller
      */
     public function update(string $access_key, Request $request)
     {
-        return $this->NfesService->update($access_key, $request);
+        return $this->nfesService->update($access_key, $request);
     }
 
     /**
@@ -73,6 +73,6 @@ class NfeController extends Controller
      */
     public function destroy(string $access_key)
     {
-        return $this->NfesService->destroy($access_key);
+        return $this->nfesService->destroy($access_key);
     }
 }

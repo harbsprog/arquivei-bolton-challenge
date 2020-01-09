@@ -5,6 +5,8 @@ namespace App\Repositories;
 use App\Repositories\ArquiveiRepositoryInterface;
 use App\Repositories\NfesRepositoryInterface;
 use Exception;
+use Illuminate\Http\Request;
+use App\Events\Worker;
 
 class ArquiveiRepositoryEloquent implements ArquiveiRepositoryInterface
 {
@@ -90,11 +92,23 @@ class ArquiveiRepositoryEloquent implements ArquiveiRepositoryInterface
      *
      * @return mixed
      */
-    public function findByAccessKey(string $access_key)
+    public function findByAccessKey(string $access_key, Request $request)
     {
         $nfe = $this->nfe->getByAccessKey($access_key);
 
-        if ($nfe) {
+        if ($nfe->count() > 0) {
+
+            if (isset($request->showNfe) && $request->showNfe == 'true') {
+
+                $nfe[0]['xml_content'] = base64_decode($nfe[0]['xml_content']);
+            } else if (isset($request->showBase64Nfe) && $request->showBase64Nfe == 'true') {
+
+                $nfe = $nfe;
+            } else {
+                unset($nfe[0]['xml_content']);
+            }
+
+
             return $nfe;
         }
 
@@ -115,10 +129,11 @@ class ArquiveiRepositoryEloquent implements ArquiveiRepositoryInterface
 
         $content = $content->data[0];
 
-        return $this->nfe->store([
-            'xml_content' => $content->xml,
-            'access_key' => $content->access_key,
-            'total_value' => $this->getPriceOnXml($content->xml)
-        ]);
+        $parsedContent = new \stdClass();
+        $parsedContent->xml_content = $content->xml;
+        $parsedContent->access_key = $content->access_key;
+        $parsedContent->total_value = $this->getPriceOnXml($content->xml);
+
+        event(new Worker($parsedContent));
     }
 }

@@ -6,7 +6,7 @@ class UsersValidator
 {
     public const ERROR_MESSAGES = [
         'required'       => 'O campo :attribute é obrigatório',
-        'numeric'        => 'O valor do campo deve ser numérico',
+        'numeric'        => 'O valor do campo :attribute deve ser numérico',
         'max'            => 'O :attribute deve ter no máximo :max caracteres',
         'min'            => 'O :attribute deve ter no mínimo :min caracteres',
         'email'          => 'O campo :attribute deve conter um e-mail válido'

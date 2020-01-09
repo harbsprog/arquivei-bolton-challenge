@@ -51,32 +51,6 @@ class NfesService
     }
 
     /**
-     * Find a nfe by id.
-     *
-     * @param $id
-     *
-     * @return mixed
-     */
-    public function get(int $id)
-    {
-
-        try {
-
-            $nfe = $this->nfesRepository->get($id);
-
-            if ($nfe) {
-
-                return response()->json($nfe, Response::HTTP_OK);
-            }
-
-            return response()->json(['message' => self::NOT_FOUND_NFE], Response::HTTP_OK);
-        } catch (QueryException $e) {
-
-            return response()->json(['erro' => self::ERRO_MYSQL_CONNECTION], Response::HTTP_INTERNAL_SERVER_ERROR);
-        }
-    }
-
-    /**
      * Create & Store a new nfe.
      *
      * @param $request
@@ -110,32 +84,6 @@ class NfesService
 
                 return response()->json(['erro' => self::ERRO_MYSQL_CONNECTION], Response::HTTP_INTERNAL_SERVER_ERROR);
             }
-        }
-    }
-
-    /**
-     * Update nfe by access_key.
-     *
-     * @param $access_key
-     * @param $request
-     *
-     * @return int
-     */
-    public function update(string $access_key, Request $request)
-    {
-
-        try {
-
-            $nfe = $this->nfesRepository->update($access_key, $request);
-
-            if ($nfe) {
-                return response()->json($nfe, Response::HTTP_OK);
-            }
-
-            return response()->json(['message' => self::NOT_UPDATED_NFE], Response::HTTP_OK);
-        } catch (QueryException $e) {
-
-            return response()->json(['erro' => self::ERRO_MYSQL_CONNECTION], Response::HTTP_INTERNAL_SERVER_ERROR);
         }
     }
 

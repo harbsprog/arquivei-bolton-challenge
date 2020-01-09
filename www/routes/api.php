@@ -36,13 +36,8 @@ Route::group(
     ['middleware' => 'auth.jwt'],
     function () {
 
-        /* NFes Routes */
-        Route::get('/syncNfe', ['uses' => Artisan::call('nfe:synchronization')]);
-
-        Route::get('/nfe/{access_key}', ['uses' => 'Nfes\NfeController@getByAccessKey']);
-        Route::get('/nfe/{id}', ['uses' => 'Nfes\NfeController@get']);
-        Route::post('/nfe', ['uses' => 'Nfes\NfeController@store']);
-        Route::put('/nfe/{access_key}', ['uses' => 'Nfes\NfeController@update']);
+        /* NFes CRUD Routes */
+        Route::get('/nfe/{access_key}', ['uses' => 'Arquivei\ArquiveiController@getByAccessKey']);
         Route::delete('/nfe/{access_key}', ['uses' => 'Nfes\NfeController@destroy']);
 
         /* Users Routes */

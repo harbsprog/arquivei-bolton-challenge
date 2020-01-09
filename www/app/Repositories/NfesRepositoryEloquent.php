@@ -30,29 +30,9 @@ class NfesRepositoryEloquent implements NfesRepositoryInterface
         return $this->nfe
             ->select(
                 'access_key',
-                'xml_content',
-                'total_value'
+                'total_value',
+                'xml_content'
             )->where('access_key', $access_key)
-            ->get();
-    }
-
-    /**
-     * Find a nfe by id.
-     *
-     * @param $id
-     *
-     * @return mixed
-     */
-    public function get(int $id)
-    {
-
-        return $this->nfe
-            ->select(
-                'access_key',
-                'xml_content',
-                'total_value'
-            )
-            ->where('id', $id)
             ->get();
     }
 
@@ -73,20 +53,6 @@ class NfesRepositoryEloquent implements NfesRepositoryInterface
     }
 
     /**
-     * Update a nfe by access_key.
-     *
-     * @param $access_key
-     * @param $request
-     *
-     * @return mixed
-     */
-    public function update(string $access_key, Request $request)
-    {
-
-        return 'Not implemented';
-    }
-
-    /**
      * Delete a nfe by access_key.
      *
      * @param $access_key
@@ -96,7 +62,7 @@ class NfesRepositoryEloquent implements NfesRepositoryInterface
     public function destroy(string $access_key)
     {
 
-        $nfe = $this->nfe->find($access_key);
+        $nfe = $this->nfe->where('access_key', $access_key);
         return $nfe->delete();
     }
 }

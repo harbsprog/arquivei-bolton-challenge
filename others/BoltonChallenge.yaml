@@ -1,0 +1,401 @@
+_type: export
+__export_format: 4
+__export_date: 2020-01-09T01:42:14.318Z
+__export_source: insomnia.desktop.app:v7.0.6
+resources:
+  - _id: req_dd06db3ca067426fa29097d429f8f080
+    authentication: {}
+    body: {}
+    created: 1578465058551
+    description: ""
+    headers:
+      - description: ""
+        id: pair_aef78b394eb24bfab3001b7db7a70c5a
+        name: Authorization
+        value: "{{ bearer  }}{{ token  }}"
+    isPrivate: false
+    metaSortKey: -1578465058551
+    method: GET
+    modified: 1578534096180
+    name: Get By AccessKey
+    parameters: []
+    parentId: fld_829a5ad53aa944499569ebca59fbd816
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingFollowRedirects: global
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ host  }}/nfe/{{ access_key  }}"
+    _type: request
+  - _id: fld_829a5ad53aa944499569ebca59fbd816
+    created: 1578285366787
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1578285366787
+    modified: 1578285366787
+    name: NFe's
+    parentId: fld_b833439ef21d4785810c42f7eac9bb93
+    _type: request_group
+  - _id: fld_b833439ef21d4785810c42f7eac9bb93
+    created: 1578174214928
+    description: ""
+    environment: {}
+    environmentPropertyOrder: {}
+    metaSortKey: -1578174214929
+    modified: 1578533890490
+    name: Arquivei's Bolton Challenge
+    parentId: wrk_23af7427d36841c29d6e9eeda6354805
+    _type: request_group
+  - _id: wrk_23af7427d36841c29d6e9eeda6354805
+    created: 1575583501246
+    description: ""
+    modified: 1575583501246
+    name: Insomnia
+    parentId: null
+    _type: workspace
+  - _id: req_aa57fbe72b0645d1b9bb1fc336963d24
+    authentication: {}
+    body: {}
+    created: 1578532319896
+    description: ""
+    headers:
+      - description: ""
+        id: pair_aef78b394eb24bfab3001b7db7a70c5a
+        name: Authorization
+        value: "{{ bearer  }}{{ token  }}"
+    isPrivate: false
+    metaSortKey: -1578459213469.5
+    method: DELETE
+    modified: 1578533867695
+    name: Delete By AccessKey
+    parameters: []
+    parentId: fld_829a5ad53aa944499569ebca59fbd816
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingFollowRedirects: global
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ host  }}/nfe/{{ access_key  }}"
+    _type: request
+  - _id: req_239626f75eae4f688db9450eb1da6527
+    authentication:
+      disabled: true
+      token: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9hcnF1aXZlaS50ZXN0XC9hcGlcL2F1dGhcL2xvZ2luIiwiaWF0IjoxNTc4MjgyOTY2LCJleHAiOjE1NzgyODY1NjYsIm5iZiI6MTU3ODI4Mjk2NiwianRpIjoieUZrWVNFYktrY2FuM0YxOSIsInN1YiI6MiwicHJ2IjoiODdlMGFmMWVmOWZkMTU4MTJmZGVjOTcxNTNhMTRlMGIwNDc1NDZhYSJ9.AHV3gKTp3sqNX8j2ZIwqO1EsP7oZUiJtRbCkhkTTLCc
+      type: bearer
+    body: {}
+    created: 1578282993862
+    description: ""
+    headers:
+      - description: ""
+        id: pair_a6a9a7259e5b4ab599dea39d7f85dfa3
+        name: Authorization
+        value: "{{ bearer  }}{{ token  }}"
+    isPrivate: false
+    metaSortKey: -1578282993862
+    method: GET
+    modified: 1578284899881
+    name: Get All Users
+    parameters: []
+    parentId: fld_40da16f9cf8241d18db1024625048249
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingFollowRedirects: global
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ host  }}/users"
+    _type: request
+  - _id: fld_40da16f9cf8241d18db1024625048249
+    created: 1578282912844
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1578282912845
+    modified: 1578282912844
+    name: Users
+    parentId: fld_b833439ef21d4785810c42f7eac9bb93
+    _type: request_group
+  - _id: req_0cb192e7815344a895f5bae19e1fdbac
+    authentication:
+      disabled: true
+      token: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9hcnF1aXZlaS50ZXN0XC9hcGlcL2F1dGhcL2xvZ2luIiwiaWF0IjoxNTc4MjgyOTY2LCJleHAiOjE1NzgyODY1NjYsIm5iZiI6MTU3ODI4Mjk2NiwianRpIjoieUZrWVNFYktrY2FuM0YxOSIsInN1YiI6MiwicHJ2IjoiODdlMGFmMWVmOWZkMTU4MTJmZGVjOTcxNTNhMTRlMGIwNDc1NDZhYSJ9.AHV3gKTp3sqNX8j2ZIwqO1EsP7oZUiJtRbCkhkTTLCc
+      type: bearer
+    body: {}
+    created: 1578284775537
+    description: ""
+    headers:
+      - description: ""
+        id: pair_a6a9a7259e5b4ab599dea39d7f85dfa3
+        name: Authorization
+        value: "{{ bearer  }}{{ token  }}"
+    isPrivate: false
+    metaSortKey: -1578280343379.5
+    method: GET
+    modified: 1578533938859
+    name: Get User By ID
+    parameters: []
+    parentId: fld_40da16f9cf8241d18db1024625048249
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingFollowRedirects: global
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ host  }}/users/{{ user_id  }}"
+    _type: request
+  - _id: req_c3e8614d7c184991ab90bf572b1eb31b
+    authentication:
+      disabled: true
+      token: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9hcnF1aXZlaS50ZXN0XC9hcGlcL2F1dGhcL2xvZ2luIiwiaWF0IjoxNTc4MjgyOTY2LCJleHAiOjE1NzgyODY1NjYsIm5iZiI6MTU3ODI4Mjk2NiwianRpIjoieUZrWVNFYktrY2FuM0YxOSIsInN1YiI6MiwicHJ2IjoiODdlMGFmMWVmOWZkMTU4MTJmZGVjOTcxNTNhMTRlMGIwNDc1NDZhYSJ9.AHV3gKTp3sqNX8j2ZIwqO1EsP7oZUiJtRbCkhkTTLCc
+      type: bearer
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"name": "Teste",
+        	"email": "jasdasa@aiodasd.com",
+        	"password": "a2189012h",
+        	"remember_token": "12312o3"
+        }
+    created: 1578284923150
+    description: ""
+    headers:
+      - description: ""
+        id: pair_a6a9a7259e5b4ab599dea39d7f85dfa3
+        name: Authorization
+        value: "{{ bearer  }}{{ token  }}"
+      - id: pair_12f13f174b5641bfa7a809bd7d0e2bd1
+        name: Content-Type
+        value: application/json
+    isPrivate: false
+    metaSortKey: -1578279018138.25
+    method: POST
+    modified: 1578285264461
+    name: Create User
+    parameters: []
+    parentId: fld_40da16f9cf8241d18db1024625048249
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingFollowRedirects: global
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ host  }}/users"
+    _type: request
+  - _id: req_276f320e9f154eb9900de2e5159d6934
+    authentication:
+      disabled: true
+      token: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9hcnF1aXZlaS50ZXN0XC9hcGlcL2F1dGhcL2xvZ2luIiwiaWF0IjoxNTc4MjgyOTY2LCJleHAiOjE1NzgyODY1NjYsIm5iZiI6MTU3ODI4Mjk2NiwianRpIjoieUZrWVNFYktrY2FuM0YxOSIsInN1YiI6MiwicHJ2IjoiODdlMGFmMWVmOWZkMTU4MTJmZGVjOTcxNTNhMTRlMGIwNDc1NDZhYSJ9.AHV3gKTp3sqNX8j2ZIwqO1EsP7oZUiJtRbCkhkTTLCc
+      type: bearer
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"name": "1Teste",
+        	"email": "jasdasa@aiodasd.com",
+        	"password": "a2189012h",
+        	"remember_token": "12312o3"
+        }
+    created: 1578285273105
+    description: ""
+    headers:
+      - description: ""
+        id: pair_a6a9a7259e5b4ab599dea39d7f85dfa3
+        name: Authorization
+        value: "{{ bearer  }}{{ token  }}"
+      - id: pair_12f13f174b5641bfa7a809bd7d0e2bd1
+        name: Content-Type
+        value: application/json
+    isPrivate: false
+    metaSortKey: -1578278355517.625
+    method: PUT
+    modified: 1578533930463
+    name: Update User
+    parameters: []
+    parentId: fld_40da16f9cf8241d18db1024625048249
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingFollowRedirects: global
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ host  }}/users/{{ user_id  }}"
+    _type: request
+  - _id: req_e3f0994eba9d43499631e8bc35a31a4c
+    authentication:
+      disabled: true
+      token: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9hcnF1aXZlaS50ZXN0XC9hcGlcL2F1dGhcL2xvZ2luIiwiaWF0IjoxNTc4MjgyOTY2LCJleHAiOjE1NzgyODY1NjYsIm5iZiI6MTU3ODI4Mjk2NiwianRpIjoieUZrWVNFYktrY2FuM0YxOSIsInN1YiI6MiwicHJ2IjoiODdlMGFmMWVmOWZkMTU4MTJmZGVjOTcxNTNhMTRlMGIwNDc1NDZhYSJ9.AHV3gKTp3sqNX8j2ZIwqO1EsP7oZUiJtRbCkhkTTLCc
+      type: bearer
+    body: {}
+    created: 1578285318899
+    description: ""
+    headers:
+      - description: ""
+        id: pair_a6a9a7259e5b4ab599dea39d7f85dfa3
+        name: Authorization
+        value: "{{ bearer  }}{{ token  }}"
+    isPrivate: false
+    metaSortKey: -1578278024207.3125
+    method: DELETE
+    modified: 1578533925358
+    name: Delete User
+    parameters: []
+    parentId: fld_40da16f9cf8241d18db1024625048249
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingFollowRedirects: global
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ host  }}/users/{{ user_id  }}"
+    _type: request
+  - _id: req_7f9ddc686902459ea4d334f3e1a1806e
+    authentication: {}
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"email": "crystel.sawayn@example.net",
+        	"password": "123456"
+        }
+    created: 1578174255762
+    description: ""
+    headers:
+      - id: pair_2358947706c647ec96af1dd6d5986245
+        name: Content-Type
+        value: application/json
+    isPrivate: false
+    metaSortKey: -1578174255763
+    method: POST
+    modified: 1578465226119
+    name: Login
+    parameters: []
+    parentId: fld_b66e871de5f246d695558d01937f1156
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingFollowRedirects: global
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ host  }}/auth/login"
+    _type: request
+  - _id: fld_b66e871de5f246d695558d01937f1156
+    created: 1578174236009
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1578174236009
+    modified: 1578282931978
+    name: Auth
+    parentId: fld_b833439ef21d4785810c42f7eac9bb93
+    _type: request_group
+  - _id: req_16e817419d5a4ad38d2443cfb85d9e0b
+    authentication: {}
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"name": "Joao",
+        	"email": "harbsproag@gmail.com",
+        	"password": "idsa"
+        }
+    created: 1578183880865
+    description: ""
+    headers:
+      - id: pair_2358947706c647ec96af1dd6d5986245
+        name: Content-Type
+        value: application/json
+      - description: ""
+        id: pair_5cddc89ca85e483bad424c3963377bb8
+        name: ""
+        value: ""
+    isPrivate: false
+    metaSortKey: -1578174255713
+    method: POST
+    modified: 1578434369069
+    name: Register
+    parameters: []
+    parentId: fld_b66e871de5f246d695558d01937f1156
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingFollowRedirects: global
+    settingRebuildPath: true
+    settingSendCookies: true
+    settingStoreCookies: true
+    url: "{{ host  }}/auth/register"
+    _type: request
+  - _id: env_5ab3a7a415f2253c4d4488f75b00b3b83c524300
+    color: null
+    created: 1575583501353
+    data: {}
+    dataPropertyOrder: null
+    isPrivate: false
+    metaSortKey: 1575583501353
+    modified: 1575583501353
+    name: Base Environment
+    parentId: wrk_23af7427d36841c29d6e9eeda6354805
+    _type: environment
+  - _id: jar_5ab3a7a415f2253c4d4488f75b00b3b83c524300
+    cookies:
+      - creation: 2020-01-04T22:04:26.569Z
+        domain: arquivei.test
+        expires: 2020-01-05T00:05:15.000Z
+        hostOnly: true
+        id: "7138965503816264"
+        key: XSRF-TOKEN
+        lastAccessed: 2020-01-04T22:05:15.542Z
+        maxAge: 7200
+        path: /
+        value: eyJpdiI6IkNvb0Frc3h2aWdjbmoxbTVkcHBTK3c9PSIsInZhbHVlIjoiMmVCZXdJNHpSRzA4M0kyTnQ3VmloanJ0T0ZYdXlsUHFsU3puSGxhVDJTaFBpVThWZEpaQjZXaTJZZ0xTdW9nMCIsIm1hYyI6ImMzYTgxYTFlODE4NDg3YTNhYmI5M2FlMTcwY2NiMzAyNjM1MmRlMDVlMzAzNjJlY2NjMDgxNmM3MTAxZGQ5ZDEifQ%3D%3D
+      - creation: 2020-01-04T22:04:26.570Z
+        domain: arquivei.test
+        expires: 2020-01-05T00:05:15.000Z
+        hostOnly: true
+        httpOnly: true
+        id: "7757265968424034"
+        key: arquiveinfe_session
+        lastAccessed: 2020-01-04T22:05:15.542Z
+        maxAge: 7200
+        path: /
+        value: eyJpdiI6IjJDbG9YeHVXNkpsU3JYXC9QSWdBOGp3PT0iLCJ2YWx1ZSI6IjlvSXhrTzE3V2FXTlVYMkxMb0tJN1d4UThNM1BIM01SZ3A3VlwvY0NcL05SR3g0eFdjZUdxbTFvZ09FVU1DNFhMNiIsIm1hYyI6Ijk5MmE3YTQ5YjMzNTM4NjUzNzBkNGJlZGYzN2EzM2U5ODYzZmFlZjM4MTdmMTgzMzhmN2E1MTcyNjlkMDgyYTAifQ%3D%3D
+      - creation: 2020-01-04T22:04:26.570Z
+        domain: arquivei.test
+        expires: 2020-01-05T00:05:15.000Z
+        hostOnly: true
+        httpOnly: true
+        id: "46816016281289485"
+        key: aHfAye6jyGPMLPIp6jqE2Pocn4mhZnlmT9Vded8c
+        lastAccessed: 2020-01-04T22:05:15.543Z
+        maxAge: 7200
+        path: /
+        value: eyJpdiI6IlVjKzFuNVo0VXhvdDdyMVE2dVwvN0lnPT0iLCJ2YWx1ZSI6InNaU2FcL1wvSTY5NnJhZUhrK0RpangwWDRXakt6SThyU2RTN2Irdm8xeFNxbWdzZmpIN2Vwa2VlRHdjVmxhUW5nN1FPQ0V6dEpCMUJpVStCbWVcL0VzVXhwRzVuWlY0MnlFUU45a3lWdEtkWlExZHh0bDJPYmdoZCtScUVWQmQzU2xGWGxRUFpsRW9hRHd1cjJycms5RVNHTnZSUmd5TWNVM2d2M3lxQ0Y1XC9XOVY3dXhhZmg3S2NMeUFEYThtT0NmNlVnOFp3R25TMWZ1c3pTTkdjTzBaSTNzekVtYmdEQ1htVUZ1akExMDljMG5yRjFRNDlPN0xyMVwvZ1B1RFdCNUNNcUhGM3dXOFwvdHBKVm9BdU1CaTNlYUpZejNWd044RVY4Kzc2YjlqVkQ3cGczKzNJbGx0UVNHZTBYR2dGUGRFNXJBIiwibWFjIjoiNDdkMmFjNjU1ZmNiODEyMjVjNzc5ZDQ0ZjIxMGM4YmY5ODQ4YjQyMzNkYjEwYzFlZGIwOTRhY2ViYjhiOTVjNyJ9
+    created: 1575583501360
+    modified: 1578175515544
+    name: Default Jar
+    parentId: wrk_23af7427d36841c29d6e9eeda6354805
+    _type: cookie_jar
+  - _id: env_04542fef24b44be9bdd40fddabcba1ff
+    color: null
+    created: 1578533823165
+    data:
+      access_key: "35130783932854000133550000000134201100011267"
+      bearer: "Bearer "
+      host: http://arquivei.test/api
+      token: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9hcnF1aXZlaS50ZXN0XC9hcGlcL2F1dGhcL2xvZ2luIiwiaWF0IjoxNTc4NTMwNTA2LCJleHAiOjE1Nzg1MzQxMDYsIm5iZiI6MTU3ODUzMDUwNiwianRpIjoiVFZla0tCTzFxZUpYNkR6aiIsInN1YiI6MSwicHJ2IjoiODdlMGFmMWVmOWZkMTU4MTJmZGVjOTcxNTNhMTRlMGIwNDc1NDZhYSJ9.-E_HrKaIS-DOcfJhuOmiCWTYChrbGH_s9owER-2Mus4
+      user_id: "1"
+    dataPropertyOrder:
+      "&":
+        - host
+        - bearer
+        - token
+        - access_key
+        - user_id
+    isPrivate: false
+    metaSortKey: 1578533823166
+    modified: 1578533919845
+    name: Bolton Challenge
+    parentId: env_5ab3a7a415f2253c4d4488f75b00b3b83c524300
+    _type: environment

@@ -22,9 +22,9 @@ Desafio proposto pela Arquivei em processo seletivo para vaga de Desenvolvedor B
 	Utilizei migrations para a criação/gerenciamento das tabelas pela facilidade na manipulação/versionamento sem precisar tocar em código SQL, onde elas também ajudariam no caso de um crescimento do sistema.
 
 	O Projeto se comporta da seguinte maneira, tenho um command que roda todo dia as *00:00 AM*  e *12:00 PM*, também via endpoint `http://arquivei.test/api/syncNfe` ou com o comando `php artisan nfe:synchronization` caso queira fazer manualmente  que realiza a sincronização das NFe's. Este command schedula um job que por sua vez é gerenciado pelo beanstalkd onde o mesmo parseia os dados retornados pela api e joga para um worker que realiza a inserção no banco Mysql, a partir do momento que foi parseado irá schedular o mesmo job para parsear as próximas Nfe's sendo assim até o findar das mesmas. Terminando assim o proposto pelos itens 1 e 2.
-O item número 3 pede a criação de um endpoint que dada a chave de acesso ele retorne o valor total o mesmo se encontra em `http://arquivei.test/api/nfe/{accessKey}`, caso não tenha a chave informada no banco utilizo o Guzzle para requisitar ao sandbox da arquivei a chave solicitada  guardo no banco e mostro para o usuário. Caso utilize o endpoint com o filtro ?showNfe=true ele irá exibir além do valor total a NFe com um base64_decode ou seja o xml propriamente dito, exemplo: `http://arquivei.test/nfe/{accessKey}?showNfe=true`
+O item número 3 pede a criação de um endpoint que dada a chave de acesso ele retorne o valor total o mesmo se encontra em `http://arquivei.test/api/nfe/{access_key}`, caso não tenha a chave informada no banco utilizo o Guzzle para requisitar ao sandbox da arquivei a chave solicitada  guardo no banco e mostro para o usuário. Caso utilize o endpoint com o filtro ?showNfe=true ele irá exibir além do valor total a NFe com um base64_decode ou seja o xml propriamente dito, exemplo: `http://arquivei.test/api/nfe/{access_key}?showNfe=true`
 Ou se preferir utilizando ?showBase64Nfe=true mostrará além do valor total a NFe com base64_encode, exemplo:
-`http://arquivei.test/nfe/{accessKey}?showBase64Nfe=true`
+`http://arquivei.test/api/nfe/{access_key}?showBase64Nfe=true`
 Implementei um rateLimit neste endpoint de 100 requests/min que contempla o limit da Api da Arquivei, onde se o limite for ultrapassado jogo em uma fila de retry evitando perda de processamento onde o endpoint terceiro (no caso a arquivei) hora que bater o limite de requisições ira negar os requests.
 
 ## Arquitetura
@@ -73,3 +73,5 @@ O ambiente foi pensado o mais automatizado possível para sua instalação, tira
 
 ## Documentação API e Collection
 
+- [Documentação Swagger](https://app.swaggerhub.com/apis-docs/harbsprog/BoltonChallenge/1.0.0)
+- [Collection Insomnia REST CLIENT](https://raw.githubusercontent.com/harbsprog/arquivei-bolton-challenge/master/others/BoltonChallenge.yaml)
