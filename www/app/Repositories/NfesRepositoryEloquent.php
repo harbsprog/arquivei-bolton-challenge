@@ -63,21 +63,24 @@ class NfesRepositoryEloquent implements NfesRepositoryInterface
      *
      * @return static
      */
-    public function store(array $array)
+    public function store(Object $obj)
     {
 
-        return $this->nfe->create($array);
+        if ($this->getByAccessKey($obj->nfeParsed->access_key)->count() == 0) {
+
+            $this->nfe->create((array) $obj->nfeParsed);
+        }
     }
 
     /**
-     * Update a nfe by access key.
+     * Update a nfe by access_key.
      *
-     * @param $id
+     * @param $access_key
      * @param $request
      *
      * @return mixed
      */
-    public function update(int $id, Request $request)
+    public function update(string $access_key, Request $request)
     {
 
         return 'Not implemented';
@@ -90,10 +93,10 @@ class NfesRepositoryEloquent implements NfesRepositoryInterface
      *
      * @return int
      */
-    public function destroy(int $id)
+    public function destroy(string $access_key)
     {
 
-        $nfe = $this->nfe->find($id);
+        $nfe = $this->nfe->find($access_key);
         return $nfe->delete();
     }
 }
