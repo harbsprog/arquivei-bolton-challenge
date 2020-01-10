@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Validator;
 class ArquiveiService
 {
     private $arquiveiRepository;
-    const NOT_FOUND_NFE = 'Nfe not found, we will capture, try again in a few moments.';
+    const NOT_FOUND_NFE = 'Nfe not found, we will capture, try again in a few moments if exists.';
     const ERRO_MYSQL_CONNECTION = 'Erro de conexão com o banco.';
 
     public function __construct(ArquiveiRepositoryInterface $arquiveiRepository)

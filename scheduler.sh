@@ -5,8 +5,10 @@ docker-compose exec arquivei-php chmod -R 775 storage
 docker-compose exec arquivei-php chmod -R 775 bootstrap/cache
 docker-compose exec arquivei-php composer install
 docker-compose exec arquivei-php cp .env.example .env 
+docker-compose exec arquivei-php php artisan dbCreate:test
 docker-compose exec arquivei-php php artisan key:generate
 docker-compose exec arquivei-php php artisan migrate
+docker-compose exec arquivei-php php artisan db:seed
 
 # Run Laravel Jobs Processing
 docker-compose exec arquivei-php php artisan queue:work --queue=nfeSync
