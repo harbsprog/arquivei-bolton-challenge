@@ -138,14 +138,16 @@ O ambiente foi pensado o mais automatizado possível para sua instalação, tira
     - docker-compose exec arquivei-php vendor/phpunit/phpunit/phpunit
 
     Este comando irá rodar testes unitários da aplicação.
+    
     Realizei os 3 seguintes testes unitários:
+    
         - Teste de busca da NFe por access key (sucesso e erro).
         - Teste de validação do too many requests(Rate Limit) (sucesso e erro).
         - Teste de não autenticação (sucesso).
 
 ## Possíveis futuras implementações
 
-    Caso fosse um projeto em produção, poderia ser implementado para uma segurança da empresa para com seus clientes logs seja com Bugsnag, no Slack ou até mesmo um Sentry da vida de falhas do sistema, ações do usuário, do sistema, de terceiros etc. Realizar implantação de outros endpoints contemplados na documentação da API da arquivei, como adicionar ou realizar update de NFes, gerar ou recuperar reports do excel, retornar as propriedas de certa conta e etc.
+Caso fosse um projeto em produção, poderia ser implementado para uma segurança da empresa para com seus clientes logs seja com Bugsnag, no Slack ou até mesmo um Sentry da vida. Seja de falhas do sistema, ações do usuário, do sistema, de terceiros etc. Realizar implantação de outros endpoints contemplados na documentação da API da arquivei, como adicionar ou realizar update de NFes, gerar ou recuperar reports do excel, retornar as propriedas de certa conta e etc.
 
 ## Documentação API e Collection
   
